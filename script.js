@@ -1,5 +1,16 @@
-const data = {}
+const tesume_table = document.getElementById("rwd-table-id");
 
-let prueba = document.getElementsByTagName("th")
+const tableRows = document.querySelectorAll('tr.row')
 
-console.log(prueba[0].textContent); // A0
+
+
+
+for (let index = 0; index < tableRows.length; index++) {
+    const row = tableRows[index];
+    const status = row.querySelector('.status');
+    console.log(row,status);
+    
+}
+
+
+
