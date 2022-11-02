@@ -2,17 +2,19 @@
     margin: 0;
     padding: 0;
     font-family: arial, sans-serif;
+    font-size: 24px;
 }
-
+/* TABLA */
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
 }
+
+
 
 td,th {
     border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+    text-align: center;
 }
 
 tr:nth-child(even) {
@@ -25,42 +27,101 @@ tr:hover {
 #main {
     display: flex;
 }
+
+
+/* FOTO */
+
 .foto_container {
     display: flex;
     flex-direction: column;
     align-items: center;    
-
 }
+
 figure img {
     display: flex;
     height: 100vh;
     width: auto;
-    
 }
 
-figcaption{
-    position: absolute;
+
+/* COTAS */
+#subtitulo {
+    position: fixed;
+    width: 300px;
+    background-color: blue;
+
+    /* width: 100%; */
 }
 
-figcaption p{
+/* L1 */
+#subtitulo p:nth-child(1){
     position: relative;
-}
-figcaption p:nth-child(1){
-    position: sticky;
-    color: red;
-    font-size: 10px;    
-    left: 10rem;
-    top: 8rem;
+    color: rgb(0, 0, 0);
+    left: 17vh;
+    top: 50vh;
     transform: rotate(0.75turn);
 
 }
-/* figcaption p:nth-child(2){
+
+/* L2 */
+#subtitulo p:nth-child(2){
     position: relative;
     color: red;
-    font-size: 10px;    
-    left: 3.5rem;
-    top: 20rem;
+    left: 13vh;
+    top: 75vh;
     transform: rotate(0.75turn);
-} */
+}
+
+/* L3 */
+#subtitulo p:nth-child(3){
+    position: relative;
+    color: rgb(0, 255, 128);
+    right: 8vh;
+    top: 75vh;
+    transform: rotate(0.75turn);
+}
+
+/* A */
+#subtitulo p:nth-child(4){
+    position: fixed;
+    left: 30vh;
+    top: 88vh;
+}
+
+/* B */
+#subtitulo p:nth-child(5){
+    position: fixed;
+    left: 30vh;
+    top: 92vh;
+    justify-content: center;
+    text-align: center;
+}
+
+/* C */
+#subtitulo p:nth-child(6){
+    position: fixed;
+    left: 30vh;
+    top: 95.5vh;
+}
 
 
+
+/* BOTONES */
+.botones {
+    position: fixed;
+    background-color: red;
+    /* display: flex;
+    flex-direction: column; */
+    bottom: 0px;
+    left: 0px;
+}
+
+.botones button {
+    height: 50px;
+    width: 50px;
+
+}
+
+.botones:hover {
+    background-color: red;
+}

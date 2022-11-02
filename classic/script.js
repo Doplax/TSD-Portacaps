@@ -1,11 +1,11 @@
 const datos = [
     {id:1,
-        L1:"Alfreds Futterkiste" , 
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
+        L1:"asdfasda" , 
+        L2:"asdfasdf",  
+        L3:"asdfasdf",
+        A:"asdfasdf",
         B:"B",
-        C:"C"
+        C:"asdfasdf"
     },
 
     {id:2,
@@ -44,7 +44,7 @@ const datos = [
         C:"C"
     },
     
-    {id:5,
+    {id:6,
         L1:"Iasdfasd",
         L2:"Maria Anders",  
         L3:"Germany",
@@ -53,7 +53,79 @@ const datos = [
         C:"C"
     },
     
-    {id:5,
+    {id:7,
+        L1:"Island Trading",
+        L2:"Maria Anders",  
+        L3:"Germany",
+        A:"A",
+        B:"B",
+        C:"C"
+    },
+    
+    {id:8,
+        L1:"Island Trading",
+        L2:"Maria Anders",  
+        L3:"Germany",
+        A:"A",
+        B:"B",
+        C:"C"
+    },
+    
+    {id:9,
+        L1:"Island Trading",
+        L2:"Maria Anders",  
+        L3:"Germany",
+        A:"A",
+        B:"B",
+        C:"C"
+    },
+    
+    {id:10,
+        L1:"Island Trading",
+        L2:"Maria Anders",  
+        L3:"Germany",
+        A:"A",
+        B:"B",
+        C:"C"
+    },
+    
+    {id:11,
+        L1:"Island Trading",
+        L2:"Maria Anders",  
+        L3:"Germany",
+        A:"A",
+        B:"B",
+        C:"C"
+    },
+    
+    {id:12,
+        L1:"Island Trading",
+        L2:"Maria Anders",  
+        L3:"Germany",
+        A:"A",
+        B:"B",
+        C:"C"
+    },
+    
+    {id:13,
+        L1:"Island Trading",
+        L2:"Maria Anders",  
+        L3:"Germany",
+        A:"A",
+        B:"B",
+        C:"C"
+    },
+    
+    {id:14,
+        L1:"Island Trading",
+        L2:"Maria Anders",  
+        L3:"Germany",
+        A:"A",
+        B:"B",
+        C:"C"
+    },
+    
+    {id:15,
         L1:"Island Trading",
         L2:"Maria Anders",  
         L3:"Germany",
@@ -63,7 +135,6 @@ const datos = [
     }
     
 ]
-console.log(Object.keys(datos[0]).length);
 
 const createTable = (datos) => {
 
@@ -87,9 +158,10 @@ const createTable = (datos) => {
             }*/
     
     //Body
+    table += `<tbody>`
     datos.forEach((Element) =>{
         table += `<tr>
-                            <td> <input type='checkbox' id=${Element.id}></td>
+                            <th> <input type='checkbox' id=${Element.id} ></th>
                             <td>${Element.L1}</td>
                             <td>${Element.L2}</td>
                             <td>${Element.L3}</td>
@@ -98,51 +170,28 @@ const createTable = (datos) => {
                             <td>${Element.C}</td>
                         </tr>`
     })
-    table += '</table>' // Closing Table
+    table += `</tbody>
+                </table>` // Closing Table
     document.getElementById("main").innerHTML += table;
 }
-
-/////////////////////////////////   MAIN  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-createTable(datos)
-
-// Para saber  que Checkbox ha sido pulsado
-let input = document.getElementsByTagName('input')
-// for (let i=0; i < input.length; i++){
-//     input[i].addEventListener("change",(e) => {
-//             if(e.currentTarget.checked) {
-//                 console.log(e.currentTarget.checked);
-//                 console.log(input[i].);
-//                 document.getElementById("subtitulo").innerHTML = `  <p>El boton ${e.currentTarget.id}</p>
-//                                                                                                         <p>AA</p>`
-//             } else {
-//                 document.getElementById("subtitulo").innerHTML = `<p>  </p>`
-                
-//             }
-//     })
-// }
-
-// Lo que queiro es 
-
+function cargarCotas() {
+    const input = document.getElementsByTagName("input")
 for (let i=0; i < input.length; i++){
     input[i].addEventListener("change",() => {
             if(input[i].checked) 
             {
-                // Para desmarcar automaticamente  las anteriores
+                // Para desmarcar automaticamente las anteriores
                 for (let j=0; j< input.length; j++)
                 {
                     if (input[i] != input[j]) { input[j].checked = false}
                 }
-
-                console.log(input[i]);
                 document.getElementById("subtitulo").innerHTML = `  
-                <p>L1 ${datos[i].L1}</p>
+                <p >L1 ${datos[i].L1}</p>
                 <p>L2 ${datos[i].L2}</p>
                 <p>L3 ${datos[i].L3}</p>
                 <p>A ${datos[i].A}</p>
                 <p>B ${datos[i].B}</p>
-                <p>C ${datos[i].C}</p>
-
-                `
+                <p>C ${datos[i].C}</p>`
             } 
             else 
             {
@@ -152,10 +201,17 @@ for (let i=0; i < input.length; i++){
     })
 }
 
+}
+/////////////////////////////////   MAIN  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+createTable(datos)
+cargarCotas()
 
 /////////////////////////// ZONA DE PRUEBAS \\\\\\\\\\\\\\\\\\\\\\\
 
-
+// let parrafo = document.createElement("p")
+// parrafo.innerHTML = "Soy nueevo"
+// let p1 = document.getElementById('p1')
+// p1.append(parrafo)
 
 
 
