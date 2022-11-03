@@ -175,7 +175,6 @@ const createTable = (datos) => {
     document.getElementById("main").innerHTML += table;
 }
 function cargarCotas() {
-    const input = document.getElementsByTagName("input")
 for (let i=0; i < input.length; i++){
     input[i].addEventListener("change",() => {
             if(input[i].checked) 
@@ -203,21 +202,37 @@ for (let i=0; i < input.length; i++){
 
 }
 /////////////////////////////////   MAIN  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+const tr = document.getElementsByTagName("tr")
+const input = document.getElementsByTagName("input")
+
 createTable(datos)
 cargarCotas()
 
+
 /////////////////////////// ZONA DE PRUEBAS \\\\\\\\\\\\\\\\\\\\\\\
 
-// let parrafo = document.createElement("p")
-// parrafo.innerHTML = "Soy nueevo"
-// let p1 = document.getElementById('p1')
-// p1.append(parrafo)
+
+// for (let i=0; i < tr.length; i++){
+//     tr[i].addEventListener("click",() => {
+//         input[i-1].checked= true;
+
+//         for (let j=0; j< input.length; j++)
+//         {
+//             if (input[i-1] != input[j]) { input[j].checked = false}
+//         }
+
+
+        
+
+//         })
+//     }
+
+    
 
 
 
 
-
-
+// 
 
 
 

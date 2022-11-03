@@ -68,7 +68,7 @@ figure img {
     position: relative;
     color: red;
     left: 13vh;
-    top: 75vh;
+    top: 70vh;
     transform: rotate(0.75turn);
 }
 
@@ -76,8 +76,8 @@ figure img {
 #subtitulo p:nth-child(3){
     position: relative;
     color: rgb(0, 255, 128);
-    right: 8vh;
-    top: 75vh;
+    right: 10vh;
+    top: 70vh;
     transform: rotate(0.75turn);
 }
 
@@ -102,12 +102,21 @@ figure img {
     position: fixed;
     left: 30vh;
     top: 95.5vh;
+
+
 }
+
+/* #p-prueba {
+    position: fixed;
+    left: 30vh;
+    top: 95.5vh;
+    text-align: center;
+} */
 
 
 
 /* BOTONES */
-.botones {
+.contenedor-botones {
     position: fixed;
     background-color: red;
     /* display: flex;
@@ -116,7 +125,7 @@ figure img {
     left: 0px;
 }
 
-.botones button {
+.botones {
     height: 50px;
     width: 50px;
 
