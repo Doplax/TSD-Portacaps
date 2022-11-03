@@ -106,12 +106,7 @@ figure img {
 
 }
 
-/* #p-prueba {
-    position: fixed;
-    left: 30vh;
-    top: 95.5vh;
-    text-align: center;
-} */
+
 
 
 
@@ -133,4 +128,22 @@ figure img {
 
 .botones:hover {
     background-color: red;
+}
+
+
+
+
+
+
+/* Pruebas */
+#prueba {
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    background-color: yellow;
+
+}
+
+.rojo {
+    background-color: red !important;
 }

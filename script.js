@@ -175,9 +175,7 @@ const createTable = (datos) => {
     document.getElementById("main").innerHTML += table;
 }
 function cargarCotas(i) {
-
     console.log(i);
-
             if(input[i].checked) 
             {
                 // Para desmarcar automaticamente las anteriores
@@ -204,6 +202,7 @@ function cargarCotas(i) {
 /////////////////////////////////   MAIN  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 createTable(datos) // Debe estar el primero, ya que si la tabla no carga, no podremos escuchar los TR ni los INPUT
 
+
 const tr = document.getElementsByTagName("tr")
 for (let i=0; i < tr.length; i++){  // Escuchar a todos los TR, usamos el for para que sea escalable y no tener que escribirlos todos uno a uno
 
@@ -227,34 +226,10 @@ for (let i=0; i < input.length; i++){
 
 /////////////////////////// ZONA DE PRUEBAS \\\\\\\\\\\\\\\\\\\\\\\
 
-
-// for (let i=0; i < tr.length; i++){
-//     tr[i].addEventListener("click",() => {
-//         input[i-1].checked= true;
-
-//         for (let j=0; j< input.length; j++)
-//         {
-//             if (input[i-1] != input[j]) { input[j].checked = false}
-//         }
-
-
-        
-
-//         })
-//     }
-
-
-
-
-
-/*
-Que necesito?
-
-;
-
-*/
-
-
+const prueba = document.getElementById("prueba")
+prueba.addEventListener("click", ()=> {
+    prueba.classList.toggle("rojo")
+})
 
 
 
