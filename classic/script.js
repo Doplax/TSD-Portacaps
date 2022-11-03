@@ -174,9 +174,10 @@ const createTable = (datos) => {
                 </table>` // Closing Table
     document.getElementById("main").innerHTML += table;
 }
-function cargarCotas() {
-for (let i=0; i < input.length; i++){
-    input[i].addEventListener("change",() => {
+function cargarCotas(i) {
+
+    console.log(i);
+
             if(input[i].checked) 
             {
                 // Para desmarcar automaticamente las anteriores
@@ -197,16 +198,31 @@ for (let i=0; i < input.length; i++){
                 document.getElementById("subtitulo").innerHTML = `<p>  </p>`
                 
             }
+}
+
+
+/////////////////////////////////   MAIN  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+createTable(datos) // Debe estar el primero, ya que si la tabla no carga, no podremos escuchar los TR ni los INPUT
+
+const tr = document.getElementsByTagName("tr")
+for (let i=0; i < tr.length; i++){  // Escuchar a todos los TR, usamos el for para que sea escalable y no tener que escribirlos todos uno a uno
+
+    tr[i].addEventListener("click",() => {
+         // Le quitamos 1 ya que TR comienza incluyendo el header, mientras que los inputs comienzan en el tr[1]
+        input[i-1].checked = true
+        cargarCotas(i-1) // 
     })
 }
 
+const input = document.getElementsByTagName("input") // Escuchar a todos los Input
+for (let i=0; i < input.length; i++){ 
+    input[i].addEventListener("change",() =>  {
+        cargarCotas(i) 
+    })
 }
-/////////////////////////////////   MAIN  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-const tr = document.getElementsByTagName("tr")
-const input = document.getElementsByTagName("input")
 
-createTable(datos)
-cargarCotas()
+
+
 
 
 /////////////////////////// ZONA DE PRUEBAS \\\\\\\\\\\\\\\\\\\\\\\
@@ -227,12 +243,16 @@ cargarCotas()
 //         })
 //     }
 
-    
 
 
 
 
-// 
+/*
+Que necesito?
+
+;
+
+*/
 
 
 
