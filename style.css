@@ -1,9 +1,14 @@
+:root {
+    --text-size: 24px;
+  }
+
 * {
     margin: 0;
     padding: 0;
     font-family: arial, sans-serif;
-    font-size: 24px;
+    font-size: var(--text-size);
 }
+
 /* TABLA */
 table {
     border-collapse: collapse;
@@ -22,12 +27,19 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-    background-color: red;
+    background-color: #3388BB;
+    cursor: pointer;
+    color: white;
+
 }
 #main {
     display: flex;
 }
 
+tbody input{
+    height: 20px;
+    width: 20px;
+}
 
 /* FOTO */
 
@@ -48,7 +60,7 @@ figure img {
 #subtitulo {
     position: fixed;
     width: 300px;
-    background-color: blue;
+    /* background-color: blue; */
 
     /* width: 100%; */
 }
@@ -66,7 +78,7 @@ figure img {
 /* L2 */
 #subtitulo p:nth-child(2){
     position: relative;
-    color: red;
+    /* color: red; */
     left: 13vh;
     top: 70vh;
     transform: rotate(0.75turn);
@@ -75,8 +87,8 @@ figure img {
 /* L3 */
 #subtitulo p:nth-child(3){
     position: relative;
-    color: rgb(0, 255, 128);
-    right: 10vh;
+    /* color: rgb(0, 255, 128); */
+    right: 9vh;
     top: 70vh;
     transform: rotate(0.75turn);
 }
@@ -110,40 +122,4 @@ figure img {
 
 
 
-/* BOTONES */
-.contenedor-botones {
-    position: fixed;
-    background-color: red;
-    /* display: flex;
-    flex-direction: column; */
-    bottom: 0px;
-    left: 0px;
-}
 
-.botones {
-    height: 50px;
-    width: 50px;
-
-}
-
-.botones:hover {
-    background-color: red;
-}
-
-
-
-
-
-
-/* Pruebas */
-#prueba {
-    position: fixed;
-    left: 50vw;
-    top: 50vh;
-    background-color: yellow;
-
-}
-
-.rojo {
-    background-color: red !important;
-}

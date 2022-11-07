@@ -1,11 +1,31 @@
+/*
+Sustituir L2 y B por "Conicidad"
+
+conicidades {
+    12,7 
+    15 { 20 o}
+    19
+}
+
+diametros A = {
+    diametro 19 { 12,7}
+    diametro 20 { 15 }
+    diametro 22 { 15 }
+    diametro 25 { 15,19 }
+    
+}
+
+
+*/
+
 const datos = [
     {id:1,
-        L1:"asdfasda" , 
-        L2:"asdfasdf",  
-        L3:"asdfasdf",
-        A:"asdfasdf",
-        B:"B",
-        C:"asdfasdf"
+        L1:"Longitud" , 
+        L2:"Borrar",
+        L3:"-",
+        A:"19",
+        B:"12,7 (conicidad)",
+        C:""
     },
 
     {id:2,
@@ -25,131 +45,20 @@ const datos = [
         B:"B",
         C:"C"
     },
-
-    {id:4,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:5,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:6,
-        L1:"Iasdfasd",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:7,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:8,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:9,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:10,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:11,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:12,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:13,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:14,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    },
-    
-    {id:15,
-        L1:"Island Trading",
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
-    }
-    
 ]
 
 const createTable = (datos) => {
 
+
     let table = '<table border="1">' // Opening Table
     //Header
     table += `<thead>
-                        <tr>
-                            <th>Caja</th>
-                            <th>${Object.keys(datos[0])[1]}</th>
-                            <th>${Object.keys(datos[0])[2]}</th>
-                            <th>${Object.keys(datos[0])[3]}</th>
-                            <th>${Object.keys(datos[0])[4]}</th>
-                            <th>${Object.keys(datos[0])[5]}</th>
-                            <th>${Object.keys(datos[0])[6]}</th>
-                        </tr>
+    <th> L1 </th>
+    <th> L3 </th>
+    <th> A </th>
+    <th> C </th>
+    <th> L1 </th>
+                    
                     </thead>`
             /*Para cargar headers con For, pero lo he quitado por legibilidad
             for ( let index = 1; index < Object.keys(datos[0]).length ;index++)  
@@ -173,6 +82,17 @@ const createTable = (datos) => {
     table += `</tbody>
                 </table>` // Closing Table
     document.getElementById("main").innerHTML += table;
+
+//     <tr>
+//     <th>Caja</th>
+//     <th>${Object.keys(datos[0])[1]}</th>
+//     <th>${Object.keys(datos[0])[2]}</th>
+//     <th>${Object.keys(datos[0])[3]}</th>
+//     <th>${Object.keys(datos[0])[4]}</th>
+//     <th>${Object.keys(datos[0])[5]}</th>
+//     <th>${Object.keys(datos[0])[6]}</th>
+// </tr>
+
 }
 function cargarCotas(i) {
     console.log(i);
@@ -184,12 +104,12 @@ function cargarCotas(i) {
                     if (input[i] != input[j]) { input[j].checked = false}
                 }
                 document.getElementById("subtitulo").innerHTML = `  
-                <p >L1 ${datos[i].L1}</p>
-                <p>L2 ${datos[i].L2}</p>
-                <p>L3 ${datos[i].L3}</p>
-                <p>A ${datos[i].A}</p>
-                <p>B ${datos[i].B}</p>
-                <p>C ${datos[i].C}</p>`
+                <p>L1: ${datos[i].L1}</p>
+                <p>L2: ${datos[i].L2}</p>
+                <p>L3: ${datos[i].L3}</p>
+                <p>A: ${datos[i].A}</p>
+                <p>B: ${datos[i].B}</p>
+                <p>C: ${datos[i].C}</p>`
             } 
             else 
             {
@@ -198,10 +118,12 @@ function cargarCotas(i) {
             }
 }
 
+function aumentarTexto(){
+    console.log(document.styleSheets);
+}
 
 /////////////////////////////////   MAIN  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 createTable(datos) // Debe estar el primero, ya que si la tabla no carga, no podremos escuchar los TR ni los INPUT
-
 
 const tr = document.getElementsByTagName("tr")
 for (let i=0; i < tr.length; i++){  // Escuchar a todos los TR, usamos el for para que sea escalable y no tener que escribirlos todos uno a uno
@@ -220,30 +142,6 @@ for (let i=0; i < input.length; i++){
     })
 }
 
-
-
-
-
 /////////////////////////// ZONA DE PRUEBAS \\\\\\\\\\\\\\\\\\\\\\\
-
-const prueba = document.getElementById("prueba")
-prueba.addEventListener("click", ()=> {
-    prueba.classList.toggle("rojo")
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
