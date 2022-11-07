@@ -19,32 +19,86 @@ diametros A = {
 */
 
 const datos = [
-    {id:1,
-        L1:"Longitud" , 
-        L2:"Borrar",
-        L3:"-",
+    {ID:0,
         A:"19",
-        B:"12,7 (conicidad)",
-        C:""
+        B:"12,7",
+        L1:"L1",
+    },
+    {ID:1,
+        A:"19",
+        B:"12,7 ",
+        L1:"L2",
+    },
+    {ID:2,
+        A:"19",
+        B:"12,7",
+        L1:"L3",
     },
 
-    {id:2,
-        L1:"Centro comercial ", 
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
+    {ID:3,
+        A:"20",
+        B:"12,7",
+        L1:"L1",
+    },
+    {ID:4,
+        A:"20",
+        B:"12,7",
+        L1:"L2",
+    },
+    {ID:5,
+        A:"20",
+        B:"12,7",
+        L1:"L3",
     },
 
-    {id:3,
-        L1:"Ernst Handel" , 
-        L2:"Maria Anders",  
-        L3:"Germany",
-        A:"A",
-        B:"B",
-        C:"C"
+    {ID:6,
+        A:"22",
+        B:"15",
+        L1:"L1",
     },
+    {ID:7,
+        A:"22",
+        B:"15",
+        L1:"L1",
+    },
+    {ID:8,
+        A:"22",
+        B:"15",
+        L1:"L1",
+    },
+
+
+    {ID:9,
+        A:"25",
+        B:"15",
+        L1:"L1",
+    },
+    {ID:10,
+        A:"25",
+        B:"15",
+        L1:"L1",
+    },
+    {ID:11,
+        A:"25",
+        B:"15",
+        L1:"L1",
+    },
+
+    {ID:12,
+        A:"25",
+        B:"19",
+        L1:"L1",
+    },
+    {ID:13,
+        A:"25",
+        B:"19",
+        L1:"L2",
+    },
+    {ID:14,
+        A:"25",
+        B:"19",
+        L1:"L3",
+    }
 ]
 
 const createTable = (datos) => {
@@ -53,12 +107,10 @@ const createTable = (datos) => {
     let table = '<table border="1">' // Opening Table
     //Header
     table += `<thead>
-    <th> L1 </th>
-    <th> L3 </th>
-    <th> A </th>
-    <th> C </th>
-    <th> L1 </th>
-                    
+                        <th>  </th>
+                        <th> A (Diametro) </th>
+                        <th> Conicidad </th>
+                        <th> L </th>
                     </thead>`
             /*Para cargar headers con For, pero lo he quitado por legibilidad
             for ( let index = 1; index < Object.keys(datos[0]).length ;index++)  
@@ -70,13 +122,10 @@ const createTable = (datos) => {
     table += `<tbody>`
     datos.forEach((Element) =>{
         table += `<tr>
-                            <th> <input type='checkbox' id=${Element.id} ></th>
-                            <td>${Element.L1}</td>
-                            <td>${Element.L2}</td>
-                            <td>${Element.L3}</td>
+                            <th> <input type='checkbox' id=${Element.ID} ></th>
                             <td>${Element.A}</td>
                             <td>${Element.B}</td>
-                            <td>${Element.C}</td>
+                            <td>${Element.L1}</td>
                         </tr>`
     })
     table += `</tbody>
@@ -118,9 +167,6 @@ function cargarCotas(i) {
             }
 }
 
-function aumentarTexto(){
-    console.log(document.styleSheets);
-}
 
 /////////////////////////////////   MAIN  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 createTable(datos) // Debe estar el primero, ya que si la tabla no carga, no podremos escuchar los TR ni los INPUT
@@ -135,7 +181,7 @@ for (let i=0; i < tr.length; i++){  // Escuchar a todos los TR, usamos el for pa
     })
 }
 
-const input = document.getElementsByTagName("input") // Escuchar a todos los Input
+const input = document.getElementsByTagName("input") // Escuchar a todos los Input para cargar las cotas
 for (let i=0; i < input.length; i++){ 
     input[i].addEventListener("change",() =>  {
         cargarCotas(i) 
