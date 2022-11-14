@@ -15,44 +15,72 @@ diametros A = {
     
 }
 */
+
+function changeReference() {
+    const referencia  = document.getElementById("referencia")
+
+    let isDiametroFill = Boolean(diametro.value);
+    let isConicidadFill = Boolean(conicidad.value);
+    let is_opcion_3_Fill = Boolean(opcion_3.value);
+
+
+    if (is_opcion_3_Fill && isConicidadFill && isDiametroFill ) {
+        referencia.innerHTML = diametro.value + conicidad.value + opcion_3.value
+        
+    } else { referencia.innerHTML = ".: REF :."   }
+    
+
+
+}
+
 function clearConicidadList() {
     while (conicidad.firstChild) { conicidad.removeChild(conicidad.firstChild);} 
 }
 
-function createOption(optionValue) {
+function createConicidadOption(optionValue) {
     let option = document.createElement("option");
     option.innerHTML = String(optionValue);
     conicidad.appendChild(option);
 }
 
+function checkChanges() {
+      
+    if          (diametro.value   == 19) {
+        clearConicidadList()
+        createConicidadOption(12.7)
+        
+
+    } else if (diametro.value == 20){
+        clearConicidadList()
+        createConicidadOption(15)
+
+    } else if (diametro.value == 22){
+        clearConicidadList()
+        createConicidadOption(15)
+
+    } else if (diametro.value == 25){
+        clearConicidadList()
+        createConicidadOption(15)
+        createConicidadOption(19)
+    } 
+    changeReference()
+}
+
 
 /////////////////////////////////////////////////
-const conicidad = document.querySelector("#conicidad")
-
-
-
-
 const diametro = document.querySelector("#diametro")
-diametro.addEventListener("change", () => {
-        if (diametro.value   == 19) {
-            clearConicidadList()
-            createOption(12.7)
-                // cargar 12,7
+diametro.addEventListener("change", () => { checkChanges()})
 
-        } else if (diametro.value   == 20){
-            clearConicidadList()
-            createOption(15)
+const conicidad = document.querySelector("#conicidad")
+conicidad.addEventListener("change", () => { checkChanges()})
 
-        } else if (diametro.value == 22){
-            clearConicidadList()
-            createOption(15)
+const opcion_3 = document.querySelector("#opcion_3")
+opcion_3.addEventListener("click", () => { checkChanges()})
 
-        } else if (diametro.value == 25){
-            clearConicidadList()
-            createOption(15)
-            createOption(19)
-        } 
-})
+
+
+
+
 
 
 

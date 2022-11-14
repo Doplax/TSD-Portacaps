@@ -2,27 +2,27 @@
     --grey-color: #dddddd;
     --blue-color: #3388BB;
 
+    --border-radius: 24px;
 }
 
 *{
     padding: 0;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .parent {
     display: flex;
+
 }
 
 .container {
-    margin: 2% auto;
-    padding: 10px;
-
+margin: 0 auto;
     font-family: arial;
     font-size: 24px;
 
-    width:auto;
+    width:340px;
     height: 800px;
-    /* Setup */
 
     position: relative;
     display: flex;
@@ -30,16 +30,13 @@
     align-items: center;
 
     background-color: var(--grey-color);
+    padding: 10px;
+
+
     border-radius: 20px;
     box-shadow: 5px 5px 5px;
 
   }
-
-.title {
-    margin: 0 auto;
-    
-}
-
 
 
 .image {
@@ -57,10 +54,14 @@
     position: absolute;
 
     background-color: var(--grey-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
 } 
 
 .selectores label:hover{
     background-color: var(--blue-color);
+    border-radius: var(--border-radius);
+
     color: white;
 }
 
@@ -69,4 +70,106 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.selectores label select  {
+    font-size: 24px;
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+
+#referencia {
+    position: relative;
+    text-align: center;
+}
+
+/* COTAS */
+.cotas {
+    position: absolute;
+    width: 100%;
+    background-color: yellow;
+}
+
+
+
+.cotas p:nth-child(1) {
+    color: rgb(21, 255, 0);
+    top: 150px;
+    position: absolute;
+}
+.cotas p:nth-child(2) {
+    color: red;
+    top: 150px;
+    position: absolute;
+}
+.cotas p:nth-child(3) {
+    color: rgb(0, 255, 234);
+    top: 50px;
+    position: absolute;
+}
+
+
+/* FOTOS CONOS */
+.photo-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    margin-right: 20px ;
+}
+
+.figure {
+    position: relative;
+    display: flex;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: var(--border-radius);
+
+}
+
+
+.figure img {
+    background-color: var(--grey-color);
+    border-radius: var(--border-radius);
+    box-shadow: 5px 5px 5px;
+    
+
+
+}
+
+.figure figcaption {
+    display: none;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    height: 100%;
+    width: 100%;
+
+    border-radius: var(--border-radius);
+
+
+    font-weight: bold;
+    /*  Hover*/
+
+}
+
+.figure figcaption:hover {
+    background-color: var(--blue-color);
+    color: white;
+    font-size: 24px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 850px) {
+    .parent {
+        display: flex;
+        flex-direction: column;
+    }
+    
 }
