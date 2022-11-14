@@ -15,34 +15,42 @@ diametros A = {
     
 }
 */
+function clearConicidadList() {
+    while (conicidad.firstChild) { conicidad.removeChild(conicidad.firstChild);} 
+}
 
 function createOption(optionValue) {
-    let option = document.createElement("option")
-    option.innerHTML = String(optionValue)
-    diametro.appendChild(option)
+    let option = document.createElement("option");
+    option.innerHTML = String(optionValue);
+    conicidad.appendChild(option);
 }
 
 
 /////////////////////////////////////////////////
+const conicidad = document.querySelector("#conicidad")
 
 
 
-const diametro = document.querySelector("#options")
+
+const diametro = document.querySelector("#diametro")
 diametro.addEventListener("change", () => {
         if (diametro.value   == 19) {
+            clearConicidadList()
             createOption(12.7)
                 // cargar 12,7
 
         } else if (diametro.value   == 20){
+            clearConicidadList()
             createOption(15)
 
         } else if (diametro.value == 22){
+            clearConicidadList()
             createOption(15)
 
         } else if (diametro.value == 25){
+            clearConicidadList()
             createOption(15)
             createOption(19)
-            // cargar 15, 19
         } 
 })
 
@@ -50,3 +58,4 @@ diametro.addEventListener("change", () => {
 
 
 //// PRUEBAS
+
