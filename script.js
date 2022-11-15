@@ -87,3 +87,5 @@ opcion_3.addEventListener("click", () => { checkChanges()})
 
 //// PRUEBAS
 
+Math.PI
+console.log(Math.PI);
