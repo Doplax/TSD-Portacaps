@@ -1,6 +1,6 @@
 :root {
     --grey-color: #dddddd;
-    --blue-color: #3388BB;
+    --blue-color: #667799;
     --border-radius: 24px;
 }
 
@@ -82,8 +82,10 @@
 }
 
 #referencia {
+    background-color: white;
     position: relative;
     text-align: center;
+    border-radius: 5px;
 }
 
 /* COTAS */
@@ -93,7 +95,7 @@
     background-color: yellow;
 }
 .cotas p:nth-child(1) {
-    color: rgb(21, 255, 0);
+    color: rgb(0, 0, 0);
     top: 715px;
     left: 220px;
     position: absolute;
