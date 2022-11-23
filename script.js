@@ -57,18 +57,16 @@ function changeReference() {
 function createConicidadOption(optionValue) {
     clearConicidadList()
 
-    let object = {}
     let number = 1
 
-
-    // Cuando solo llega 1 parametro
+    //  Llega 1 elemento
     if (typeof optionValue === typeof number ){
         let newOption = document.createElement("option");
         newOption.innerHTML = String(optionValue);
         conicidad.appendChild(newOption);    }
 
-    // cuando llega mas de uno
-    if (typeof optionValue === typeof object ){
+    //  Llega mas de uno
+    else {
         optionValue.forEach((value) => {
             let newOption = document.createElement("option");
             newOption.innerHTML = String(value);
