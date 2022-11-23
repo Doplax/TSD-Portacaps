@@ -1,5 +1,5 @@
 
-const data = {
+const listaDiametros = {
     // diametro 19 { 12,7 }
     // diametro 20 { 15 }
     // diametro 22 { 15 }
@@ -24,18 +24,15 @@ const data = {
 
 
 function checkChanges() {
-    if          (diametro.value == 19) {
-        createConicidadOption(12.7)
-
-    } else if (diametro.value == 20){
-        createConicidadOption(15)
-
-    } else if (diametro.value == 22){
-        createConicidadOption(15)
-
-    } else if (diametro.value == 25){
-        createConicidadOption(15,19)
-    } 
+    // En vez de escribir un if por cada opcion, podemos hacer esto:
+    for ( diametro in listaDiametros){
+        
+        if (diametroEscogido.value == diametro) {
+                let conicidad = listaDiametros[diametro].conicidad
+                console.log(conicidad);
+                createConicidadOption(conicidad)
+        }
+    }
 
     changeReference();
     loadCotas()
@@ -57,15 +54,27 @@ function changeReference() {
     
 }
 
-function createConicidadOption(...optionValue) {
+function createConicidadOption(optionValue) {
     clearConicidadList()
 
-    optionValue.forEach((value) => {
+    let object = {}
+    let number = 1
+
+
+    // Cuando solo llega 1 parametro
+    if (typeof optionValue === typeof number ){
         let newOption = document.createElement("option");
-        newOption.innerHTML = String(value);
-        conicidad.appendChild(newOption);
-    })
-    
+        newOption.innerHTML = String(optionValue);
+        conicidad.appendChild(newOption);    }
+
+    // cuando llega mas de uno
+    if (typeof optionValue === typeof object ){
+        optionValue.forEach((value) => {
+            let newOption = document.createElement("option");
+            newOption.innerHTML = String(value);
+            conicidad.appendChild(newOption);
+        })        
+    }
 }
 
 function clearConicidadList() {
@@ -73,11 +82,10 @@ function clearConicidadList() {
 }
 
 function loadCotas() {
-
 }
 
 /////////////////////////////////////////////////
-const diametro = document.querySelector("#diametro")
+const diametroEscogido = document.querySelector("#diametro")
 diametro.addEventListener("change", () => { checkChanges()})
 
 const conicidad = document.querySelector("#conicidad")
@@ -85,12 +93,3 @@ conicidad.addEventListener("change", () => { checkChanges()})
 
 const opcion_3 = document.querySelector("#opcion_3")
 opcion_3.addEventListener("click", () => { checkChanges()})
-
-
-let prueba = (...param) => {
-    param.forEach(element => {
-        console.log(element)
-    })
-}
-
-prueba("hola","adios")
