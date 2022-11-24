@@ -1,36 +1,32 @@
 
 const listaDiametros = {
-    // diametro 19 { 12,7 }
-    // diametro 20 { 15 }
-    // diametro 22 { 15 }
-    // diametro 25 { 15,19 }
     19: { 
-        conicidad: 12.7,
-        L: [100, 150, 250]
+        conicidad: ["-",12.7],
+        L: ["-",100, 150, 250]
     } ,
     20: {
-        conicidad: 15,
-        L: [80,150,250]
+        conicidad: ["-",15],
+        L: ["-",80,150,250]
     },
     22: {
-        conicidad: 15,
-        L: [80,150,250]
+        conicidad: ["-",15],
+        L: ["-",80,150,250]
     },
     25: {
-        conicidad: [15,19],
-        L: [100,200,325]
+        conicidad: ["-",15,19],
+        L: ["-",100,200,325]
     }
 }
-
 
 function checkChanges() {
     // En vez de escribir un if por cada opcion, podemos hacer esto:
     for ( diametro in listaDiametros){
-        
         if (diametroEscogido.value == diametro) {
                 let conicidad = listaDiametros[diametro].conicidad
-                console.log(conicidad);
                 createConicidadOption(conicidad)
+
+                let LOption = listaDiametros[diametro].L
+                createLongitudLOption(LOption)
         }
     }
 
@@ -39,55 +35,72 @@ function checkChanges() {
 }
 
 function changeReference() {
-
     const referencia  = document.getElementById("referencia")
-
-    let isDiametroFill = Boolean(diametro.value);
+    let isDiametroFill = Boolean(diametroEscogido.value);
     let isConicidadFill = Boolean(conicidad.value);
-    let is_opcion_3_Fill = Boolean(opcion_3.value);
+    let isLongitudLFill = Boolean(longitudL.value);
 
 
-    if (is_opcion_3_Fill && isConicidadFill && isDiametroFill ) {
-        referencia.innerHTML = diametro.value + conicidad.value + opcion_3.value
+    if (isLongitudLFill && isConicidadFill && isDiametroFill ) {
+        referencia.innerHTML = diametroEscogido.value + conicidad.value + longitudL.value
         
     } else { referencia.innerHTML = ".: Refer :."   }
-    
 }
 
 function createConicidadOption(optionValue) {
-    clearConicidadList()
+    clearListOptions(conicidad)
 
-    let number = 1
-
-    //  Llega 1 elemento
-    if (typeof optionValue === typeof number ){
+    optionValue.forEach((value) => {
         let newOption = document.createElement("option");
-        newOption.innerHTML = String(optionValue);
-        conicidad.appendChild(newOption);    }
-
-    //  Llega mas de uno
-    else {
-        optionValue.forEach((value) => {
-            let newOption = document.createElement("option");
-            newOption.innerHTML = String(value);
-            conicidad.appendChild(newOption);
-        })        
-    }
+        newOption.innerHTML = String(value);
+        conicidad.appendChild(newOption);
+    })        
+    
 }
 
-function clearConicidadList() {
-    while (conicidad.firstChild) { conicidad.removeChild(conicidad.firstChild);} 
+function createLongitudLOption(optionValue) {
+    clearListOptions(longitudL)
+
+    optionValue.forEach((value) => {
+        let newOption = document.createElement("option");
+        newOption.innerHTML = String(value);
+        longitudL.appendChild(newOption);
+    })        
+    
+}
+
+function clearListOptions(lista) {
+    while (lista.firstChild) { lista.removeChild(lista.firstChild);} 
 }
 
 function loadCotas() {
+    let isDiametroFill = Boolean(diametroEscogido.value);
+    let isLongitudLFill = Boolean(longitudL.value);
+
+    if (isDiametroFill) {
+        let cota1 = document.querySelector('.cotas p:nth-child(1)')
+        cota1.innerHTML = diametroEscogido.value + "mm"
+    }
+
+    if (isLongitudLFill) {
+        let cota2 = document.querySelector('.cotas p:nth-child(2)')
+        cota2.innerHTML = longitudL.value + "mm"
+    }
 }
 
 /////////////////////////////////////////////////
 const diametroEscogido = document.querySelector("#diametro")
-diametro.addEventListener("change", () => { checkChanges()})
+diametroEscogido.addEventListener("change", () => { checkChanges()})
 
 const conicidad = document.querySelector("#conicidad")
 conicidad.addEventListener("change", () => { checkChanges()})
 
-const opcion_3 = document.querySelector("#opcion_3")
-opcion_3.addEventListener("click", () => { checkChanges()})
+const longitudL = document.querySelector("#longitudL")
+longitudL.addEventListener("click", () => { checkChanges()})
+
+
+//////////////
+
+console.log();
+
+
