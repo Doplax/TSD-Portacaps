@@ -16,49 +16,44 @@ const listaDiametros = {
         conicidad: ["-",15,19],
         L: ["-",100,200,325]
     }
-}
-
+};
 function checkChangesDiametro() {
-    // En vez de escribir un if por cada opcion, podemos hacer esto:
+    // En vez de escribir un if por cada Conicidad, podemos hacer esto:
     for ( diametro in listaDiametros){
         if (diametroEscogido.value == diametro) {
             // Cargar opciones
-                let conicidad = listaDiametros[diametro].conicidad
-                createConicidadOption(conicidad)
+                let conicidad = listaDiametros[diametro].conicidad;
+                createConicidadOption(conicidad);
 
-                let LOption = listaDiametros[diametro].L
-                createLongitudLOption(LOption)
+                let LOption = listaDiametros[diametro].L;
+                createLongitudLOption(LOption);
         }
     }
-
     changeReference();
-    loadCotas()
+    loadCotas();
 }
-
 function checkChangesConicidad() {
     changeReference();
-    loadCotas()
+    loadCotas();
 }
 function checkChangesLongitudL() {
     changeReference();
-    loadCotas()
+    loadCotas();
 }
-
 function changeReference() {
-    const referencia  = document.getElementById("referencia")
+    const referencia  = document.getElementById("referencia");
     let isDiametroFill = Boolean(diametroEscogido.value);
     let isConicidadFill = Boolean(conicidad.value);
     let isLongitudLFill = Boolean(longitudL.value);
 
 
     if (isLongitudLFill && isConicidadFill && isDiametroFill ) {
-        referencia.innerHTML = diametroEscogido.value + conicidad.value + longitudL.value
+        referencia.innerHTML = diametroEscogido.value + conicidad.value + longitudL.value;
         
     } else { referencia.innerHTML = ".: Refer :."   }
 }
-
 function createConicidadOption(optionValue) {
-    clearListOptions(conicidad)
+    clearListOptions(conicidad);
 
     optionValue.forEach((value) => {
         let newOption = document.createElement("option");
@@ -67,50 +62,45 @@ function createConicidadOption(optionValue) {
     })        
     
 }
-
 function createLongitudLOption(optionValue) {
-    clearListOptions(longitudL)
+    clearListOptions(longitudL);
 
     optionValue.forEach((value) => {
         let newOption = document.createElement("option");
         newOption.innerHTML = String(value);
         longitudL.appendChild(newOption);
     })        
-    
 }
-
 function clearListOptions(lista) {
-    while (lista.firstChild) { lista.removeChild(lista.firstChild);} 
+    while (lista.firstChild) { lista.removeChild(lista.firstChild)};
 }
-
 function loadCotas() {
     let isDiametroFill = Boolean(diametroEscogido.value);
 
     if (isDiametroFill) {
-        let cota1 = document.querySelector('.cotas p:nth-child(1)')
-        cota1.innerHTML = diametroEscogido.value + "mm"
+        let cota1 = document.querySelector('.cotas p:nth-child(1)');
+        cota1.innerHTML = diametroEscogido.value + "mm";
     }
 
     if (longitudL.value != "-") {
-        let cota2 = document.querySelector('.cotas p:nth-child(2)')
-        cota2.innerHTML = longitudL.value + "mm"
+        let cota2 = document.querySelector('.cotas p:nth-child(2)');
+        cota2.innerHTML = longitudL.value + "mm";
     }
 }
 
 /////////////////////////////////////////////////
-const diametroEscogido = document.querySelector("#diametro")
-diametroEscogido.addEventListener("change", () => { checkChangesDiametro()})
+const diametroEscogido = document.querySelector("#diametro");
+diametroEscogido.addEventListener("change", () => { checkChangesDiametro()});
 
-const conicidad = document.querySelector("#conicidad")
-conicidad.addEventListener("change", () => { checkChangesConicidad()})
+const conicidad = document.querySelector("#conicidad");
+conicidad.addEventListener("change", () => { checkChangesConicidad()});
 
-const longitudL = document.querySelector("#longitudL")
-longitudL.addEventListener("click", () => { checkChangesLongitudL()})
+const longitudL = document.querySelector("#longitudL");
+longitudL.addEventListener("click", () => { checkChangesLongitudL()});
 
 
 
 //////////////
 
-console.log("");
 
 
